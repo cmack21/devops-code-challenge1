@@ -1,10 +1,10 @@
-FROM node:14.21.3
+FROM node:14
 WORKDIR /app
 COPY package*.json ./
-RUN npm cache clean --force
-RUN npm install --legacy-peer-deps
+RUN npm install
 COPY . .
-RUN npm run build
+RUN NODE_OPTIONS=--openssl-legacy-provider npm run build
 RUN npm install -g serve
 EXPOSE 3000
 CMD ["serve", "-s", "build"]
+
