@@ -1,8 +1,9 @@
 const config = {
   backendUrl: "http://localhost:8080",
 };
-module.exports = config;
-
+module.exports = {
+CORS_ORIGIN: 'http://<ALB-DNS>'
+};
 
 
 
